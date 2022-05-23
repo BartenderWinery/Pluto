@@ -4,16 +4,16 @@ using System.Diagnostics;
 
 namespace main
 {
-    public class main {
+    public class main { 
         static void Main(string[] args) {
             string path = AppDomain.CurrentDomain.BaseDirectory; List<string> icons = new List<string>();
-            Dictionary<string, List<string>> App = new Dictionary<string, List<string>>();
+            Dictionary<string, List<string>> App = new Dictionary<string, List<string>>(); 
                 App.Add("name", new List<string> { "virus lol" }); //add random name system
                 App.Add("attributes", new List<string> {  });
             #pragma warning disable CS8602 // Dereference of a possibly null reference.
             string name = Process.GetCurrentProcess().MainModule.ModuleName.Split(".")[0];
             #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-            Dictionary<string, string[]> data = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(System.IO.File.ReadAllText(path + "/bin/data.json"));
+            Dictionary<string, string[]> data = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(System.IO.File.ReadAllText(path + "/bin/data.json")); //Add system to create files if failed to find any
             if (args.Length > 0) {
                 for (int i = 0; i < args.Length; i++) {
                     switch (args[i]) {
@@ -40,7 +40,7 @@ namespace main
                     }
                 }
             } else {
-                foreach (FileInfo file in new DirectoryInfo(path + "/bin/icos").GetFiles("*.ico")) {
+                foreach (FileInfo file in new DirectoryInfo(path + "/bin/icos").GetFiles("*.ico")) { //Add system to create files if failed to find any
                     icons.Add(file.Name); }
                 WshShell shell = new WshShell();
                 IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut((string)shell.SpecialFolders.Item("Desktop") + "/" + name + ".lnk");
