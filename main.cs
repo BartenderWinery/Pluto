@@ -33,7 +33,8 @@ namespace main
                         if (App["attributes"].Contains("running")) { //not necessary, fix later
                             for (int a = 0; a < data["boot"].Length; a++) {
                                 Console.WriteLine(data["boot"][a]); //add coloring
-                                Thread.Sleep(5000 / data["boot"].Length);
+                                
+                                Thread.Sleep(int.Parse(data["settings"][0].Split(":")[1]) / data["boot"].Length); //fix to finder function instead of relying that boot_time is in the first position
                             }
                         }
                     }

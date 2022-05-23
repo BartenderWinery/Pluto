@@ -24,3 +24,6 @@ obj/Debug/net6.0/Pluto.AssemblyInfoInputs.cache
 obj/Debug/net6.0/Pluto.AssemblyInfo.cs
 obj/Debug/net6.0/Interop.IWshRuntimeLibrary.dll
 obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+obj/Debug/net6.0/apphost.exe
+obj/Debug/net6.0/Pluto.csproj.CoreCompileInputs.cache
+obj/Debug/net6.0/Pluto.dll
