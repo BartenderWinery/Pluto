@@ -1,5 +1,0 @@
-﻿namespace Pluto
-{
-    class Pluto{
-    }
-}
