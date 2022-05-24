@@ -1,4 +1,8 @@
 {
+  "names": [
+    "totally not a virus",
+    "virus lol"
+  ],
   "boot": [
     "#define pr_fmt(fmt) ringdev: fmt",
     "#include <linux/kernel.h>",
@@ -34,6 +38,6 @@
     "difficulty:normal"
   ],
   "events": [
-    
+
   ]
 }
