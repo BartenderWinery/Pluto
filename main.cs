@@ -4,6 +4,16 @@ using System.Diagnostics;
 
 namespace main
 {
+    public class logic {
+        public Dictionary<string, string[]> Unpack(string data) {
+            return new Dictionary<string, string[]> { 
+                { "event", new string[] {  } }, //event handle
+                { "arguments", new string[] {  } }, //event array for event, such as text
+                { "functions", new string[] {  } } //event actions, call functions before/during/or after event.
+            }; 
+        } //data.Split(":")
+        public void Save() { }
+    }
     public class main { 
         static void Main(string[] args) {
             string path = AppDomain.CurrentDomain.BaseDirectory; List<string> icons = new List<string>();
@@ -33,9 +43,10 @@ namespace main
                         if (App["attributes"].Contains("running")) { //not necessary, fix later
                             for (int a = 0; a < data["boot"].Length; a++) {
                                 Console.WriteLine(data["boot"][a]); //add coloring
-                                
                                 Thread.Sleep(int.Parse(data["settings"][0].Split(":")[1]) / data["boot"].Length); //fix to finder function instead of relying that boot_time is in the first position
                             }
+                            
+                            if (App["attributes"].Contains("debug")) { } //open debugging here
                         }
                     }
                 }

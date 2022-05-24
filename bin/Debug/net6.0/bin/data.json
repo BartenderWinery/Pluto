@@ -11,15 +11,12 @@
     "#define RINGDEV_MAJOR 0\n\n",
     "wait_queue_head_t queueHead;\n",
     "struct ringdev {",
-    "   struct mutex",
-    "   ringdev_lock;",
+    "   struct mutex ringdev_lock;",
     "   void *ringdev_buf;",
-    "   ssize_t",
-    "   head; ssize_t",
-    "   tail;",
+    "   ssize_t head;",
+    "   ssize_t tail;",
     "};",
     "static struct ringdev *ringdev;\n",
-
     "static int ringdev_open(struct inode *inode struct file *filp)",
     "{",
     "   unsigned int minor=iminor(inode); struct",
@@ -33,6 +30,10 @@
     "   return 0;"
   ],
   "settings": [
-    "boot_time:2500"
+    "boot_time:2500",
+    "difficulty:normal"
+  ],
+  "events": [
+    
   ]
 }
