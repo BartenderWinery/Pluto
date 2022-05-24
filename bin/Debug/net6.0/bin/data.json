@@ -37,7 +37,10 @@
     "boot_time:2500",
     "difficulty:normal"
   ],
+  "data": [
+    
+  ],
   "events": [
-
+    "getting_hacked;1:chaos:5000:after;"
   ]
 }

@@ -5,14 +5,23 @@ using System.Diagnostics;
 namespace main
 {
     public class logic {
-        public Dictionary<string, string[]> Unpack(string data) {
-            return new Dictionary<string, string[]> { 
-                { "event", new string[] {  } }, //event handle
-                { "arguments", new string[] {  } }, //event array for event, such as text
-                { "functions", new string[] {  } } //event actions, call functions before/during/or after event.
+        public Dictionary<string, string[]> Unpack(string[] data) {
+            return new Dictionary<string, string[]> {
+                { "event", new string[] { data[0] } }, //event name/id
+                { "event", new string[] { data[1] } }, //event handle
+                { "arguments", new string[] { data[2] } }, //event array for event, such as text
+                { "functions", new string[] { data[3] } } //event actions, call functions before/during/or after event.
             }; 
         } //data.Split(":")
         public void Save() { }
+        public void Load(string data, Dictionary<string, string[]> database) { 
+            for (int i = 0; i < database["events"].Length; i++) { 
+                if (database["events"][i] == data) {
+                    Unpack(database["events"][i].Split(":"));
+                    break;
+                } 
+            } 
+        } //load specific name/id from data.json
     }
     public class main { 
         static void Main(string[] args) {
@@ -50,13 +59,14 @@ namespace main
             } else {
                 foreach (FileInfo file in new DirectoryInfo(path + "/bin/icos").GetFiles("*.ico")) { //Add system to create files if failed to find any
                     icons.Add(file.Name); }
-                WshShell shell = new WshShell();
-                IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut((string)shell.SpecialFolders.Item("Desktop") + "/ Pluto.lnk");
-                    shortcut.Description = "trolled and seethed";
-                    shortcut.IconLocation = @Directory.GetCurrentDirectory() + "/bin/icos/" + icons.ToArray()[new Random().Next(0, icons.Count)];
-                    shortcut.TargetPath = path + "/Pluto.exe";
-                    shortcut.Arguments = "boot";
-                shortcut.Save(); Microsoft.VisualBasic.FileIO.FileSystem.RenameFile((string)shell.SpecialFolders.Item("Desktop") + "/ Pluto.lnk", " "+ App["name"].ToArray()[new Random().Next(0, App["name"].Count)] + ".lnk");;
+                
+                    WshShell shell = new WshShell();
+                    IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut((string)shell.SpecialFolders.Item("Desktop") + "/ Pluto.lnk");
+                        shortcut.Description = "trolled and seethed";
+                        shortcut.IconLocation = @Directory.GetCurrentDirectory() + "/bin/icos/" + icons.ToArray()[new Random().Next(0, icons.Count)];
+                        shortcut.TargetPath = path + "/Pluto.exe";
+                        shortcut.Arguments = "boot";
+                    shortcut.Save(); try { Microsoft.VisualBasic.FileIO.FileSystem.RenameFile((string)shell.SpecialFolders.Item("Desktop") + "/ Pluto.lnk", " " + App["name"].ToArray()[new Random().Next(0, App["name"].Count)] + ".lnk"); } catch (IOException e) { Microsoft.VisualBasic.FileIO.FileSystem.RenameFile((string)shell.SpecialFolders.Item("Desktop") + "/ Pluto.lnk", " " + new string(Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 5).Select(s => s[new Random().Next(s.Length)]).ToArray()) + ".lnk"); };
             }
         }
     }
