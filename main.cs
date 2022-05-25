@@ -1,6 +1,5 @@
 ﻿using IWshRuntimeLibrary;
 using Newtonsoft.Json;
-using System.Diagnostics;
 
 namespace main
 {
@@ -51,8 +50,7 @@ namespace main
                                 Console.WriteLine(data["boot"][a]); //add coloring
                                 Thread.Sleep(int.Parse(data["settings"][0].Split(":")[1]) / data["boot"].Length); //fix to finder function instead of relying that boot_time is in the first position
                             }
-                            
-                            if (App["attributes"].Contains("debug")) { } //open debugging here
+                            if (App["attributes"].Contains("debug")) {  } //open debugging here
                         }
                     }
                 }
