@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+using IWshRuntimeLibrary;
 using Newtonsoft.Json;
 
 namespace main
@@ -58,7 +58,7 @@ namespace main
                 foreach (FileInfo file in new DirectoryInfo(path + "/bin/icos").GetFiles("*.ico")) { //Add system to create files if failed to find any
                     icons.Add(file.Name); }
                 
-                    WshShell shell = new WshShell();
+                    WshShell shell = new WshShell(); 
                     IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut((string)shell.SpecialFolders.Item("Desktop") + "/ Pluto.lnk");
                         shortcut.Description = "trolled and seethed";
                         shortcut.IconLocation = @Directory.GetCurrentDirectory() + "/bin/icos/" + icons.ToArray()[new Random().Next(0, icons.Count)];
@@ -69,3 +69,5 @@ namespace main
         }
     }
 }
+//ApplicationConfiguration.Initialize();
+//Application.Run(new dll());
