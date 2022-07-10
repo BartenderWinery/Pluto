@@ -13,4 +13,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Pluto
-build_property.ProjectDir = D:\Programs\Visual Studio Code\development\Pluto\Pluto\
+build_property.ProjectDir = D:\Programs\VSC\development\Pluto\Pluto\
